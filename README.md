@@ -20,3 +20,6 @@ More at: [AnyLinux-AppImages](https://pkgforge-dev.github.io/Anylinux-AppImages/
     <img src="https://github.com/user-attachments/assets/d40067a6-37d2-4784-927c-2c7f7cc6104b" alt="Inspiration Image">
   </a>
 </details>
+
+--------------------------------------------------
+### NOTE: Requires soh.o2r and oot.o2r oot-mq.o2r inside ./local/share/soh folder. soh.o2r can be downloaded from [here](https://github.com/HarbourMasters/Shipwright/releases/download/9.1.1/SoH-Copper-Bravo-Win64.zip)
