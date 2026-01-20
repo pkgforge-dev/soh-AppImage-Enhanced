@@ -71,7 +71,7 @@ package_soh() {
   DESTDIR="${pkgdir}" cmake --install build --component ship
 
   install -dm755 "${pkgdir}/usr/bin/"
-  ln -s "${SHIP_PREFIX}/soh.elf" "${pkgdir}/usr/bin/soh"
+  #ln -s "${SHIP_PREFIX}/soh.elf" "${pkgdir}/usr/bin/soh"
   install -Dm644 "${srcdir}/${_reponame}-${pkgver}/soh.o2r" "${pkgdir}/usr/bin/soh.o2r"
   install -Dm644 "${srcdir}/soh.desktop" -t "${pkgdir}/usr/share/applications"
   install -Dm644 soh/macosx/sohIcon.png "${pkgdir}/usr/share/pixmaps/soh.png"
