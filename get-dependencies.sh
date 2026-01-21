@@ -17,6 +17,6 @@ echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
-make-aur-package soh
+make-aur-package soh soh-otr-exporter
 
 # If the application needs to be manually built that has to be done down here
