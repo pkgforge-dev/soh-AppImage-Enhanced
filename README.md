@@ -6,7 +6,7 @@
 * [Latest Stable Release](https://github.com/pkgforge-dev/soh-AppImage/releases/latest)
 
 ---
---------------------------------------------------
+
 ### NOTE: Requires `soh.o2r` and `oot.o2r` `oot-mq.o2r` inside ./local/share/soh folder. soh.o2r can be downloaded and extracted from [here](https://github.com/HarbourMasters/Shipwright/releases/download/9.1.1/SoH-Copper-Bravo-Win64.zip)
 
 AppImage made using [sharun](https://github.com/VHSgunzo/sharun), which makes it extremely easy to turn any binary into a portable package without using containers or similar tricks.
