@@ -1,6 +1,6 @@
 <div align="center">
 
-# soh-AppImage 🐧
+# soh-AppImage-Enhanced 🐧
 
 [![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/soh-AppImage-Enhanced/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
 [![CI Build Status](https://github.com//pkgforge-dev/soh-AppImage-Enhanced/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
