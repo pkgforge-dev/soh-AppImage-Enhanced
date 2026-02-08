@@ -21,8 +21,8 @@ pacman -Syu --noconfirm \
     sdl2_net      \
     spdlog        \
     tinyxml2      \
-    valijson
-    #websocketpp
+    valijson      \
+    websocketpp
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
