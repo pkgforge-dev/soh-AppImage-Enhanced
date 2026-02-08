@@ -16,7 +16,6 @@ pacman -Syu --noconfirm \
     lsb-release   \
     ninja         \
     nlohmann-json \
-    openssl-1.1   \
     opusfile      \
     sdl2          \
     sdl2_net      \
@@ -30,6 +29,7 @@ echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
+make-aur-package openssl-1.1
 make-aur-package zenity-rs-bin
 
 # If the application needs to be manually built that has to be done down here
