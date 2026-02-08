@@ -9,21 +9,19 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     boost         \
     cmake         \
-    curl          \
     fmt           \
     python        \
     libdecor      \
-    libpng        \
     libzip        \
     lsb-release   \
     ninja         \
     nlohmann-json \
-    opus          \
     opusfile      \
     sdl2          \
     sdl2_net      \
     spdlog        \
-    tinyxml2
+    tinyxml2      \
+    valijson
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -53,6 +51,7 @@ cmake --build build --target GenerateSohOtr
 cmake --build build --target soh --config Release
 #cmake --install build --component extractor
 
+mv -v build/assets ../AppDir/bin
 mv -v build/soh/soh.elf ../AppDir/bin/soh
 mv -v build/soh/soh.o2r ../AppDir/bin
 wget -O ../AppDir/bin/gamecontrollerdb.txt https://raw.githubusercontent.com/mdqinc/SDL_GameControllerDB/master/gamecontrollerdb.txt
