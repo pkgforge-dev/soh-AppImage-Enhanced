@@ -21,9 +21,9 @@ pacman -Syu --noconfirm \
     sdl2          \
     sdl2_net      \
     spdlog        \
-    tinyxml2      \
-    valijson      \
-    websocketpp
+    tinyxml2
+    #valijson      \
+    #websocketpp
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -46,8 +46,8 @@ cmake . \
     -Bbuild \
     -GNinja \
     -DCMAKE_BUILD_TYPE=Release \
-    -DNON_PORTABLE=On \
-    -DBUILD_REMOTE_CONTROL=1
+    -DNON_PORTABLE=On
+    #-DBUILD_REMOTE_CONTROL=1
 cmake --build build --target ZAPD --config Release
 cmake --build build --target GenerateSohOtr
 cmake --build build --target soh --config Release
