@@ -82,7 +82,4 @@ package_soh-otr-exporter() {
   cd "${srcdir}/${_reponame}-${pkgver}"
 
   DESTDIR="${pkgdir}" cmake --install build --component extractor
-
-  install -dm755 "${pkgdir}/usr/bin"
-  install -dm755 "${pkgdir}/usr/share/licenses/soh-otr-exporter"
 }
