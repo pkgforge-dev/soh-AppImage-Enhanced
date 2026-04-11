@@ -1,4 +1,0 @@
-#!/bin/false
-dir=${XDG_DATA_HOME:-~/.local/share}/soh
-mkdir -p "$dir"
-cd "$dir"

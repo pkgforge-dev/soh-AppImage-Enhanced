@@ -1,0 +1,4 @@
+#!/bin/sh
+dir=$DATADIR/soh
+mkdir -p "$dir"
+cd "$dir"
