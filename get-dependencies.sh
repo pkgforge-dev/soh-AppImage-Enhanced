@@ -17,8 +17,6 @@ pacman -Syu --noconfirm \
     ninja         \
     nlohmann-json \
     opusfile      \
-    pkgconf       \
-    python        \
     sdl2          \
     sdl2_net      \
     spdlog        \
