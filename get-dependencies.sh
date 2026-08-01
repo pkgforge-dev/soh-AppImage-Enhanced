@@ -10,6 +10,7 @@ pacman -Syu --noconfirm \
     boost         \
     cmake         \
     fmt           \
+    imagemagick   \
     libdecor      \
     libzip        \
     lsb-release   \
