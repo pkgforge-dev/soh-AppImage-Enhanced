@@ -1,0 +1,4 @@
+#!/bin/sh
+export SHIP_HOME="${SHIP_HOME:-$DATADIR/soh}"
+mkdir -p "$SHIP_HOME"
+

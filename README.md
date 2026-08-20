@@ -3,7 +3,7 @@
 # soh-AppImage-Enhanced 🐧
 
 [![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/soh-AppImage-Enhanced/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
-[![CI Build Status](https://github.com//pkgforge-dev/soh-AppImage-Enhanced/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
+[![CI Build Status](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/soh-AppImage-Enhanced)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
 
 <p align="center">
@@ -17,11 +17,10 @@
 
 </div>
 
-### ⚠️ Need to generate `oot.o2r` and/or `oot-mq.o2r` using official [AppImage](https://github.com/HarbourMasters/Shipwright/releases/latest) and place in `~/.local/share/soh/` ⚠️
 
 ---
 
-AppImage made using [quick-sharun](https://github.com/pkgforge-dev/Anylinux-AppImages/blob/main/useful-tools/quick-sharun.sh), which makes it extremely easy to turn any binary into a portable package reliably without using containers or similar tricks. 
+AppImage made using [quick-sharun](https://github.com/pkgforge-dev/Anylinux-AppImages/blob/main/useful-tools/quick-sharun.sh), which makes it extremely easy to turn any binary into a portable package reliably without using containers or similar tricks.
 
 **This AppImage bundles everything and it should work on any Linux distro, including old and musl-based ones.**
 
