@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Ship of Harkinian
-Comment=An unofficial port of The Legend of Zelda: Ocarina of Time
-Exec=soh
-Terminal=false
-Icon=soh
-StartupWMClass=soh
-Type=Application
-Categories=Game;Retro;Emulator;
