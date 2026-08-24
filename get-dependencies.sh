@@ -65,4 +65,3 @@ git clone https://github.com/HarbourMasters/Shipwright ./Shipwright && (
 
 mkdir -p ./AppDir/bin
 mv -v /opt/soh/* ./AppDir/bin
-cp -v ./Shipwright/soh/macosx/sohIcon.png ./AppDir/soh.png
