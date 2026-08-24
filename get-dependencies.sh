@@ -58,7 +58,6 @@ git clone https://github.com/HarbourMasters/Shipwright ./Shipwright && (
 
 	cmake --install build --component ship
 	cmake --install build --component extractor
-	ln -s soh.elf /opt/soh/soh
 
 	echo "$TAG" > ~/version
 )
