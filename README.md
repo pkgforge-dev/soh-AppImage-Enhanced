@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/soh-AppImage-Enhanced)](https://github.com/pkgforge-dev/soh-AppImage-Enhanced/releases/latest)
 
 <p align="center">
-  <img src="https://github.com/HarbourMasters/Shipwright/blob/develop/soh/icon.jpg" width="128" />
+  <img src="https://raw.githubusercontent.com/HarbourMasters/Shipwright/refs/heads/develop/soh/macosx/sohIcon.png" width="128" />
 </p>
 
 
