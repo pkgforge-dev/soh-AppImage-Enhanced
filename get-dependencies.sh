@@ -16,53 +16,35 @@ pacman -Syu --noconfirm \
 	libvorbis     \
 	libzip        \
 	lsb-release   \
-	ninja         \
 	nlohmann-json \
 	opusfile      \
-	sdl2          \
 	sdl2_net      \
 	spdlog        \
 	tinyxml2
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano libdecor-mini
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini opus-mini
 
-# Comment this out if you need an AUR package
 make-aur-package zenity-rs-bin
 
-# If the application needs to be manually built that has to be done down here
 echo "Building soh..."
 echo "---------------------------------------------------------------"
-git clone https://github.com/HarbourMasters/Shipwright ./Shipwright && (
-	cd ./Shipwright
+REPO=https://github.com/HarbourMasters/Shipwright
+VERSION=$(git ls-remote --tags --refs --sort=-v:refname "$REPO" | awk -F'/' '{print $NF; exit}')
+git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO"
+echo "$VERSION" > ~/version
 
-	git fetch --tags origin
-	TAG=$(git tag --sort=-v:refname | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
-	git checkout "$TAG"
-	git submodule update --init --recursive
+cd ./Shipwright
+# GCC 16 compilation patch
+sed -i '1a #include <cstdint>' libultraship/include/ship/window/MouseStateManager.h
 
-	# GCC 16 compilation patch
-	sed -i '1a #include <cstdint>' libultraship/include/ship/window/MouseStateManager.h
-
-	cmake ./ \
-		-Bbuild \
-		-GNinja \
-		-DCMAKE_BUILD_TYPE=Release \
-		-DCMAKE_INSTALL_PREFIX=/opt/soh \
-		-DBUILD_REMOTE_CONTROL=1
-
-	cmake --build build --target ZAPD
-	cmake --build build --target GenerateSohOtr
-	cmake --build build --target soh
-
-	cmake --install build --component ship
-	cmake --install build --component extractor
-	ln -s soh.elf /opt/soh/soh
-
-	echo "$TAG" > ~/version
-)
+cmake ./ -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/soh -DBUILD_REMOTE_CONTROL=1
+cmake --build build --target ZAPD -j$(nproc)
+cmake --build build --target GenerateSohOtr -j$(nproc)
+cmake --build build --target soh -j$(nproc)
+cmake --install build --component ship
+cmake --install build --component extractor
 
 mkdir -p ./AppDir/bin
 mv -v /opt/soh/* ./AppDir/bin
-cp -v ./Shipwright/soh/macosx/sohIcon.png ./AppDir/soh.png
