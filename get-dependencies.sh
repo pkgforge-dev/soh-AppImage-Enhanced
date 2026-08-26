@@ -52,9 +52,9 @@ git clone https://github.com/HarbourMasters/Shipwright ./Shipwright && (
 		-DCMAKE_INSTALL_PREFIX=/opt/soh \
 		-DBUILD_REMOTE_CONTROL=1
 
-	cmake --build build --target ZAPD
-	cmake --build build --target GenerateSohOtr
-	cmake --build build --target soh
+	cmake --build build --target ZAPD -j$(nproc)
+	cmake --build build --target GenerateSohOtr -j$(nproc)
+	cmake --build build --target soh -j$(nproc)
 
 	cmake --install build --component ship
 	cmake --install build --component extractor
