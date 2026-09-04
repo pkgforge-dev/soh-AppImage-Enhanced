@@ -16,7 +16,6 @@ pacman -Syu --noconfirm \
 	libvorbis     \
 	libzip        \
 	lsb-release   \
-	ninja         \
 	nlohmann-json \
 	opusfile      \
 	sdl2          \
@@ -47,7 +46,6 @@ git clone https://github.com/HarbourMasters/Shipwright ./Shipwright && (
 
 	cmake ./ \
 		-Bbuild \
-		-GNinja \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DCMAKE_INSTALL_PREFIX=/opt/soh \
 		-DBUILD_REMOTE_CONTROL=1
