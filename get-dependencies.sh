@@ -40,12 +40,7 @@ cd ./Shipwright
 # GCC 16 compilation patch
 sed -i '1a #include <cstdint>' libultraship/include/ship/window/MouseStateManager.h
 
-cmake ./ \
-	-B build \
-	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX=/opt/soh \
-	-DBUILD_REMOTE_CONTROL=1
-
+cmake ./ -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/soh -DBUILD_REMOTE_CONTROL=1
 cmake --build build --target ZAPD -j$(nproc)
 cmake --build build --target GenerateSohOtr -j$(nproc)
 cmake --build build --target soh -j$(nproc)
