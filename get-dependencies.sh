@@ -18,7 +18,6 @@ pacman -Syu --noconfirm \
 	lsb-release   \
 	nlohmann-json \
 	opusfile      \
-	sdl2          \
 	sdl2_net      \
 	spdlog        \
 	tinyxml2
