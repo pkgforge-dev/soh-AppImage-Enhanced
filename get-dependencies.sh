@@ -14,7 +14,6 @@ pacman -Syu --noconfirm \
 	libzip        \
 	lsb-release   \
 	nlohmann-json \
-	openssl	      \
 	opusfile      \
 	sdl2_net      \
 	spdlog        \
@@ -36,10 +35,13 @@ git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO"
 echo "$VERSION" > ~/version
 
 cd ./Shipwright
-# GCC 16 compilation patch
-#sed -i '1a #include <cstdint>' libultraship/include/ship/window/MouseStateManager.h
-
-cmake ./ -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/soh -DBUILD_REMOTE_CONTROL=1
+cmake ./ -B build \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_INSTALL_PREFIX=/opt/soh \
+	-DBUILD_REMOTE_CONTROL=1 \
+	-DOPENSSL_ROOT_DIR=/usr \
+	-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so \
+	-DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so
 cmake --build build --target ZAPD -j$(nproc)
 cmake --build build --target GenerateSohOtr -j$(nproc)
 cmake --build build --target soh -j$(nproc)
