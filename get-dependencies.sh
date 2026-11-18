@@ -36,13 +36,19 @@ git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO"
 echo "$VERSION" > ~/version
 
 cd ./Shipwright
+mkdir -p ./asio-system/asio
+ln -sfn /usr/include ./asio-system/asio/include
 cmake ./ -B build \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX=/opt/soh \
 	-DBUILD_REMOTE_CONTROL=1 \
+	-DFETCHCONTENT_SOURCE_DIR_ASIO="$PWD/asio-system" \
 	-DOPENSSL_ROOT_DIR=/usr \
 	-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so \
 	-DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so
+sed -i -e 's|typedef asio::io_service SERVICE;|typedef asio::io_context SERVICE;|' \
+	-e 's|expires_from_now(|expires_after(|g' \
+	build/_deps/wswrap-src/include/wswrap_websocketpp.hpp
 cmake --build build --target ZAPD -j$(nproc)
 cmake --build build --target GenerateSohOtr -j$(nproc)
 cmake --build build --target soh -j$(nproc)
