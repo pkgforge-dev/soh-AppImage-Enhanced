@@ -31,7 +31,7 @@ make-aur-package zenity-rs-bin
 echo "Building soh..."
 echo "---------------------------------------------------------------"
 REPO=https://github.com/HarbourMasters/Shipwright
-VERSION=$(git ls-remote --tags --refs --sort=-v:refname "$REPO" | awk -F'/' '{print $NF; exit}')
+VERSION=$(git ls-remote --tags --refs --sort=-v:refname "$REPO" | awk -F'/' '{print $NF}' | grep -E '^[0-9]+(\.[0-9]+)*$' | head -n 1)
 git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO"
 echo "$VERSION" > ~/version
 
@@ -47,12 +47,12 @@ cmake ./ -B build \
 	-DOPENSSL_ROOT_DIR=/usr \
 	-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so \
 	-DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so
-sed -i -e 's|typedef asio::io_service SERVICE;|typedef asio::io_context SERVICE;|' \
-	-e 's|expires_from_now(|expires_after(|g' \
-	build/_deps/wswrap-src/include/wswrap_websocketpp.hpp
-cmake --build build --target ZAPD -j$(nproc)
+if [ -f build/_deps/wswrap-src/include/wswrap_websocketpp.hpp ]; then
+	sed -i -e 's|typedef asio::io_service SERVICE;|typedef asio::io_context SERVICE;|' \
+		-e 's|expires_from_now(|expires_after(|g' \
+		build/_deps/wswrap-src/include/wswrap_websocketpp.hpp
+fi
 cmake --build build --target GenerateSohOtr -j$(nproc)
 cmake --build build --target soh -j$(nproc)
 cmake --install build --component ship
-cmake --install build --component extractor
 mv -v /opt/soh/* ../AppDir/bin
